@@ -99,3 +99,83 @@ const questions = [
   ];
 
   window.onload = function () {}
+
+
+
+// Variabili globali
+    let numeroDomanda = 0; // Serve a dire a che numero di domanda siamo, in questo caso alla domanda 0 che sarebbe la domanda 1
+    let score = 0; // Contatore per il punteggio dell'utente
+
+    // Funzione per caricare una domanda
+    function caricaDomanda() {
+      // Recupera la domanda attuale usando l'indice corrente
+      let domandaCorrente = questions[numeroDomanda];
+
+      // Mostra il testo della domanda
+      let contenutoDomanda = document.getElementById("question");
+      contenutoDomanda.innerText = domandaCorrente.question;
+
+      // Combina la risposta corretta e quelle errate in un unico array
+      let risposte = [domandaCorrente.correct_answer].concat(domandaCorrente.incorrect_answers);
+
+      // Mescola le risposte utilizzando Math.random()
+      risposte = risposte.sort(() => Math.random() - 0.5);
+
+      // Trova il contenitore per le risposte e lo svuota
+      let answersElement = document.getElementById("answers");
+      answersElement.innerHTML = ""; // Elimina eventuali risposte precedenti
+
+      // Crea un pulsante per ogni risposta
+      for (let i = 0; i < risposte.length; i++) {
+        let answerButton = document.createElement("button"); // Crea un pulsante
+        answerButton.textContent = risposte[i]; // Imposta il testo del pulsante con la risposta
+        answerButton.className = "answer"; // Aggiunge una classe CSS
+        answerButton.onclick = clickRisposta; // Aggiunge un evento click
+        answersElement.appendChild(answerButton); // Aggiunge il pulsante al DOM
+      }
+    }
+
+    // Funzione per gestire il click su una risposta
+    function clickRisposta(event) {
+      // Recupera il testo della risposta cliccata
+      let selectedAnswer = event.target.textContent;
+
+      // Recupera la domanda attuale
+      let domandaCorrente = questions[numeroDomanda];
+
+      // Verifica se la risposta selezionata è corretta
+      if (selectedAnswer === domandaCorrente.correct_answer) {
+        score++; // Incrementa il punteggio se corretto
+      }
+
+      // Passa alla domanda successiva
+      numeroDomanda++;
+      if (numeroDomanda < questions.length) {
+        // Se ci sono ancora domande, carica la prossima
+        caricaDomanda();
+      } else {
+        // Altrimenti, mostra il punteggio finale
+        showScore();
+      }
+    }
+
+    // Funzione per mostrare il punteggio finale
+    function showScore() {
+      let contenutoDomanda = document.getElementById("question");
+      let answersElement = document.getElementById("answers");
+      let scoreElement = document.getElementById("score");
+
+      // Cambia il testo per indicare che il quiz è finito
+      contenutoDomanda.textContent = "Quiz Finished!";
+      // Svuota il contenitore delle risposte
+      answersElement.innerHTML = "";
+      // Mostra il punteggio totale
+      scoreElement.style.display = "block";
+      scoreElement.textContent = "Your Score: " + score + " / " + questions.length;
+    }
+
+    // Carica la prima domanda quando la pagina è pronta
+    window.onload = function () {
+      caricaDomanda();
+    };
+  

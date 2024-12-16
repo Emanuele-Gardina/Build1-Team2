@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <img src="../assets/epicode_logo.png">
+        <img src="assets/epicode_logo.png">
     </header>
     <main>
-        <div class="question-container">
-            <h1>Domanda Casuale</h1>
-            <p id="category"></p>
-            <p id="question"></p>
-            <div id="options" class="options"></div>
-            <button id="next-btn" style="display: none;" onclick="showRandomQuestion()">Prossima Domanda</button>
+        <div id="quiz-container">
+            <!-- Contenitore della domanda -->
+            <h1 id="question"></h1>
+            <!-- Contenitore delle risposte -->
+            <div id="answers"></div>
+            <!-- Messaggio per il punteggio finale -->
+            <h2 id="score" style="display: none;">Your Score: 0</h2>
           </div>
-          <div class="score" id="score" style="display: none;"></div>
     </main>
     <script src="./script.js"></script>
     
