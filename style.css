@@ -71,7 +71,7 @@ label {
     margin-right: auto; /* Spinge la label a sinistra */
 }
 
-button {
+#buttonwelcomepage {
     position: absolute; /* Posiziona il bottone in modo assoluto */
     right: 0; /* Posiziona il bottone al bordo destro */
     padding: 1em 3em;
