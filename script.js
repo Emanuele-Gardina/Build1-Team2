@@ -115,6 +115,7 @@ function caricaDomanda() {
   // Mostra il testo della domanda
   let contenutoDomanda = document.getElementById("question");
   contenutoDomanda.innerText = domandaCorrente.question;
+  contenutoDomanda.style.textAlign = "center";
 
   // Combina la risposta corretta e quelle errate in un unico array
   let risposte = [domandaCorrente.correct_answer].concat(domandaCorrente.incorrect_answers);
@@ -133,6 +134,16 @@ function caricaDomanda() {
     answerButton.className = "answer"; // Aggiunge una classe CSS
     answerButton.onclick = clickRisposta; // Aggiunge un evento click
     answersElement.appendChild(answerButton); // Aggiunge il pulsante al DOM
+    // Cambia il colore al passaggio del mouse
+    answerButton.addEventListener("mouseenter", () => {
+      answerButton.style.backgroundImage = "linear-gradient(349deg, rgba(96,0,88,1) 0%, rgba(210,0,148,1) 100%)";
+      });
+
+      // Ripristina il colore quando il mouse esce
+      answerButton.addEventListener("mouseleave", () => {
+      answerButton.style.backgroundImage = "none";
+      answerButton.style.backgroundColor = "#d2009327"; // Colore originale
+      });
   }
 }
 
@@ -194,6 +205,7 @@ function startTimer() {
   timerScore = setInterval(() => {
     tempoRimanente--
     timer.innerText = tempoRimanente;
+    /* timer.innerText = `SECONDS ${tempoRimanente} REMAINING`; */
 
     if (tempoRimanente <= 0) {
       clearInterval(timerScore);

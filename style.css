@@ -71,14 +71,56 @@ label {
     margin-right: auto; /* Spinge la label a sinistra */
 }
 
+
 #buttonwelcomepage {
     position: absolute; /* Posiziona il bottone in modo assoluto */
     right: 0; /* Posiziona il bottone al bordo destro */
     padding: 1em 3em;
+    font-size: 1.2em;
     font-weight: 700;
     margin: auto;
     background-color: #00ffff;
     color: black;
+    cursor: pointer;
+    box-shadow: 1px 1px 23px 5px #00FFFF;
+    transition: all 0.3s ease;
+    border-style:initial;
 }
 
-/* FINE PAGINA WELCOME PAGE
+/* PAGINA BENCHMARK */
+
+#question {
+    padding: 0 15%;
+    font-size: 3.5em;
+    line-height: 1em;
+}
+
+#answers {
+    padding: 2% 15%;
+    text-align: center;
+}
+
+.answer {
+    background-color: #d2009327;
+    color: white;
+    width: 25em;
+    height: 5em;
+    margin: 2%;
+    border: solid rgba(255, 255, 255, 0.189);
+    border-radius: 5em;
+    font-weight: bold;
+}
+
+#timer {
+    text-align: center;
+    font-size: 3em;
+}
+
+header div {
+    border: 12px solid #00ffff ;
+    border-radius: 50%;
+    margin-left: 90%;
+    width: 1.25em;
+    height: 1.25em;
+}
+
