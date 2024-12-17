@@ -159,7 +159,6 @@ main #numeroDomanda {
   font-weight: bold;
   line-height: 1.5; /* Imposta altezza riga coerente */
   margin-top: 0; /* Uniformità margini */
-  display: inline-block;
   vertical-align: middle;
   padding-top: 1.6em;
   line-height: 1.2em;
