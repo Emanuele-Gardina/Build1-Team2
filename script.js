@@ -110,7 +110,8 @@ function caricaDomanda() {
   // Recupera la domanda attuale usando l'indice corrente
   let domandaCorrente = questions[numeroDomanda];
   let numDomanda = document.getElementById("numeroDomanda")
-  numDomanda.innerText = "Question" + (numeroDomanda+1) + "/10" 
+  numDomanda.innerHTML =`QUESTION&nbsp; ${numeroDomanda + 1} <span style="color: #D20094;"> / 10</span>`;
+
 
   // Mostra il testo della domanda
   let contenutoDomanda = document.getElementById("question");
@@ -174,7 +175,8 @@ function clickRisposta(event) {
 // Funzione per mostrare il punteggio finale
 function showScore() {
   clearInterval(timerScore); // Ferma il timer
-
+  let percentualeCorrette = Math.round((score / questions.length) * 100); // Usa "length" corretto
+  let percentualeIncorrette = 100 - percentualeCorrette;
   // Nascondi il timer
   let timer = document.getElementById("timer");
   timer.style.display = "none"; // Nascondi il numero del timer
@@ -185,13 +187,19 @@ function showScore() {
   let scoreElement = document.getElementById("score");
 
   // Cambia il testo per indicare che il quiz è finito
-  contenutoDomanda.textContent = "Quiz Finished!";
+
+  contenutoDomanda.textContent = "Results";
   // Svuota il contenitore delle risposte
   answersElement.innerHTML = "";
   // Mostra il punteggio totale
   scoreElement.style.display = "block";
-  scoreElement.textContent = "Your Score: " + score + " / " + questions.length;
+  scoreElement.innerHTML = 
+  "<span class= percentualeRisposte>Correct: " + percentualeCorrette + "%</span> " + 
+  "<p id= congr1>Congratulations!<br>You passed the exam.</p><p id=congr2>We'll send you the certificate<br>in a few minutes.<br> Check your email (including<br>promotions / spam folder)</p>" + 
+  "<span class= percentualeRisposte>Wrong: " + percentualeIncorrette + "%</span>";
 }
+
+
 
 // Carica la prima domanda quando la pagina è pronta
 window.onload = function () {

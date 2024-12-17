@@ -124,3 +124,9 @@ header div {
     height: 1.25em;
 }
 
+main #numeroDomanda {
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    padding: 3em 0;
+    font-weight: 500;
+}
