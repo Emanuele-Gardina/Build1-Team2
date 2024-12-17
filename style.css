@@ -130,3 +130,95 @@ main #numeroDomanda {
     padding: 3em 0;
     font-weight: 500;
 }
+
+#quiz-container{
+  text-align: center;
+  position: relative; /* Per posizionare i figli */
+  height: auto;
+  margin-top: 20px; /* Spazio sopra */
+  text-align: center; /* Allinea il contenuto centrale */
+}
+
+ #score {
+    display: inline;
+    width: 90%;
+}
+
+#sottotitolo {
+    font-size: 0.5em;
+    font-weight: 300;
+}
+
+.percentualeRispostecorette, 
+.percentualeRispostesbagliate {
+  color: white;
+  float: left; /* Per correct (a sinistra) */
+  width: 20%; /* Larghezza riservata */
+  text-align: left; /* Testo centrato orizzontalmente */
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.5; /* Imposta altezza riga coerente */
+  margin-top: 0; /* Uniformità margini */
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 1.6em;
+  line-height: 1.2em;
+}
+
+.percentualeRispostesbagliate {
+  float: right; /* Allinea wrong a destra */
+  text-align: right;
+}
+
+.congr {
+  color: white;
+  margin: 0 auto; /* Centra il blocco */
+  width: 90%; /* Spazio centrale */
+  text-align: center; /* Contenuto centrato */
+  display: inline-block;
+  vertical-align: middle; /* Allineamento verticale */
+  padding-top: 1em;
+  font-size: 1.1em;
+}
+.sezionecentrale {
+  text-align: center;
+  border: 30px solid #00ffff ;
+  border-radius: 50%;
+  width: 7em;
+  height: 7em;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+ }
+
+#congr1, #congr2 {
+  margin: 0; /* Rimuove margini predefiniti */
+  font-size: 0.5em;
+  line-height: 1.5; /* Migliora leggibilità */
+}
+
+#congr2 {
+    font-weight: 400;
+    font-size: 0.4em;
+}
+
+#riga2 {
+    color: #00FFFF;
+}
+
+#correct, #wrong {
+    font-weight: 300;
+}
+
+#buttonrate {
+    margin: auto;
+    margin-top: 4em;
+    margin-bottom: 5em;
+    padding: 0.8em 3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: #d2009327;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+}

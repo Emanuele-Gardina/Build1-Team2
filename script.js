@@ -159,7 +159,9 @@ function clickRisposta(event) {
   // Verifica se la risposta selezionata è corretta
   if (selectedAnswer === domandaCorrente.correct_answer) {
     score++; // Incrementa il punteggio se corretto
+    localStorage.setItem("risultato",score);
   }
+  //localStorage.getItem ("risultato") da portare nella quarta pagina
 
   // Passa alla domanda successiva
   numeroDomanda++;
@@ -185,18 +187,28 @@ function showScore() {
   let contenutoDomanda = document.getElementById("question");
   let answersElement = document.getElementById("answers");
   let scoreElement = document.getElementById("score");
+  let buttonrate = document.getElementById("buttonrate");
+  buttonrate.style.display = "block"
 
   // Cambia il testo per indicare che il quiz è finito
 
-  contenutoDomanda.textContent = "Results";
+  contenutoDomanda.innerHTML = "Results <br> <span id= sottotitolo>The summary of your answers:</span>";
   // Svuota il contenitore delle risposte
   answersElement.innerHTML = "";
   // Mostra il punteggio totale
-  scoreElement.style.display = "block";
-  scoreElement.innerHTML = 
-  "<span class= percentualeRisposte>Correct: " + percentualeCorrette + "%</span> " + 
-  "<p id= congr1>Congratulations!<br>You passed the exam.</p><p id=congr2>We'll send you the certificate<br>in a few minutes.<br> Check your email (including<br>promotions / spam folder)</p>" + 
-  "<span class= percentualeRisposte>Wrong: " + percentualeIncorrette + "%</span>";
+  scoreElement.style.display = "inline-block";
+  scoreElement.innerHTML = `
+  <div class="result-container">
+    <span class="percentualeRispostecorette"><Span id=correct>Correct</span><br> ${percentualeCorrette}%</span>
+    <div class = sezionecentrale>
+      <div class="congr">
+      <p id="congr1">Congratulations!<br><span id= riga2>You passed the exam.</span></p>
+      <p id="congr2">We'll send you the certificate<br>in a few minutes.<br>Check your email (including<br>promotions / spam folder)</p>
+      </div>
+    </div>
+    <span class="percentualeRispostesbagliate"><Span id=wrong>Wrong</span><br> ${percentualeIncorrette}%</span>
+  </div>
+`;
 }
 
 
