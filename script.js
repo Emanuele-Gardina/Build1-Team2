@@ -105,9 +105,12 @@ const questions = [
 // Variabili globali
     let numeroDomanda = 0; // Serve a dire a che numero di domanda siamo, in questo caso alla domanda 0 che sarebbe la domanda 1
     let score = 0; // Contatore per il punteggio dell'utente
+    let timerScore;
 
     // Funzione per caricare una domanda
     function caricaDomanda() {
+      clearInterval(timerScore)
+      startTimer();
       // Recupera la domanda attuale usando l'indice corrente
       let domandaCorrente = questions[numeroDomanda];
 
@@ -173,9 +176,31 @@ const questions = [
       scoreElement.style.display = "block";
       scoreElement.textContent = "Your Score: " + score + " / " + questions.length;
     }
-
     // Carica la prima domanda quando la pagina è pronta
     window.onload = function () {
       caricaDomanda();
     };
+
+    function startTimer (){
+      let tempoRimanente = 10;
+      let timer = document.getElementById("timer")
+      let paragrafoTempo = document.getElementById("paragrafoTempo")
+      timer.innerText = tempoRimanente
+      timerScore = setInterval(() => {
+        tempoRimanente--
+        timer.innerText = tempoRimanente;
+
+        if(tempoRimanente <= 0){
+          clearInterval(timerScore);
+          numeroDomanda++;
+          caricaDomanda();
+          if (numeroDomanda < questions.length) {
+            caricaDomanda(); // Carica la domanda successiva
+          }
+        }
+      }, 1000);
+    }
+    startTimer();
+
+   
   
