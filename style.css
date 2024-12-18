@@ -266,8 +266,16 @@ main #numeroDomanda {
 }
 
 /* cambiare colore alle img (stelle) */
+
 .star {
-    filter: grayscale(100%) brightness(50%);
+    cursor: pointer;
+    filter: grayscale(100%); /* Stelle non colorate, effetto grigio */
+    transition: filter 0.2s ease; /* Animazione per un cambiamento più fluido */
+}
+
+.star.active {
+    filter: grayscale(0%); /* Stelle attive, colorate */
+    
 }
 
 #commento {
