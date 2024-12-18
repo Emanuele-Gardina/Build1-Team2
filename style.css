@@ -93,6 +93,7 @@ label {
     padding: 0 15%;
     font-size: 3.5em;
     line-height: 1em;
+    margin: 0;
 }
 
 #answers {
@@ -131,17 +132,17 @@ main #numeroDomanda {
     font-weight: 500;
 }
 
-#quiz-container{
+/* #quiz-container{
   text-align: center;
-  position: relative; /* Per posizionare i figli */
+  position: relative; 
   height: auto;
-  margin-top: 20px; /* Spazio sopra */
-  text-align: center; /* Allinea il contenuto centrale */
+  text-align: center;
 }
 
  #score {
     display: inline;
     width: 90%;
+    margin: 0;
 }
 
 #sottotitolo {
@@ -152,30 +153,30 @@ main #numeroDomanda {
 .percentualeRispostecorette, 
 .percentualeRispostesbagliate {
   color: white;
-  float: left; /* Per correct (a sinistra) */
-  width: 20%; /* Larghezza riservata */
-  text-align: left; /* Testo centrato orizzontalmente */
+  float: left; 
+  width: 20%; 
+  text-align: left;
   font-size: 1.5em;
   font-weight: bold;
-  line-height: 1.5; /* Imposta altezza riga coerente */
-  margin-top: 0; /* Uniformità margini */
+  line-height: 1.5; 
+  margin-top: 0;
   vertical-align: middle;
   padding-top: 1.6em;
   line-height: 1.2em;
 }
 
 .percentualeRispostesbagliate {
-  float: right; /* Allinea wrong a destra */
+  float: right;
   text-align: right;
 }
 
 .congr {
   color: white;
-  margin: 0 auto; /* Centra il blocco */
-  width: 90%; /* Spazio centrale */
-  text-align: center; /* Contenuto centrato */
+  margin: 0 auto;
+  width: 90%; 
+  text-align: center; 
   display: inline-block;
-  vertical-align: middle; /* Allineamento verticale */
+  vertical-align: middle; 
   padding-top: 1em;
   font-size: 1.1em;
 }
@@ -191,9 +192,9 @@ main #numeroDomanda {
  }
 
 #congr1, #congr2 {
-  margin: 0; /* Rimuove margini predefiniti */
+  margin: 0; 
   font-size: 0.5em;
-  line-height: 1.5; /* Migliora leggibilità */
+  line-height: 1.5;
 }
 
 #congr2 {
@@ -207,11 +208,98 @@ main #numeroDomanda {
 
 #correct, #wrong {
     font-weight: 300;
+} */
+
+#mainpag3{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    position: relative; 
+    height: auto;
+    text-align: center;
 }
+
+#sezionecentrale {
+    margin: 3em 0;
+}
+
+#titolopag3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#sottotitolopag3 {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+#spaziocorrette, #spaziosbagliate {
+  color: white;
+  float: left; 
+  width: 20%; 
+  text-align: left;
+  font-size: 3em;
+  font-weight: 300;
+  line-height: 1.5; 
+  margin-top: 0;
+  vertical-align: middle;
+  padding-top: 1.6em;
+  line-height: 1.2em;
+}
+
+#correct, #wrong {
+    font-weight: bold;
+}
+
+#spaziosbagliate {
+    float: right;
+    text-align: right;
+  }
+
+#congr {
+    color: white;
+    margin: 0 auto;
+    width: 70%; 
+    text-align: center; 
+    display: inline-block;
+    vertical-align: middle; 
+    padding-top: 2.7em;
+  }
+#cerchio {
+    text-align: center;
+    border: 30px solid #00ffff ;
+    border-radius: 50%;
+    width: 12em;
+    height: 12em;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+   }
+  
+  #congr1 {
+    margin: 0; 
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  
+  #congr3 {
+      font-weight: 400;
+      font-size: 0.6em;
+  }
+  
+  #congr2 {
+    color: #00FFFF;
+    margin: 0; 
+    font-size: 0.8em;
+    line-height: 1.5;
+    margin-bottom: 0.8em;
+  }
 
 #buttonrate {
     margin: auto;
-    margin-top: 4em;
+    margin-top: 2em;
     margin-bottom: 5em;
     padding: 0.8em 3em;
     font-size: 1.2em;

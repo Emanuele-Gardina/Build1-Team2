@@ -200,6 +200,7 @@ function showRisultati() {
   document.getElementById("wrong").innerText = percentualeIncorrette;
 }
 
+
 // Carica la prima domanda quando la pagina è pronta
 window.onload = function () {
   if (window.location.pathname.includes("Risultati.html")) {
@@ -208,3 +209,7 @@ window.onload = function () {
     caricaDomanda(); // Carica la prima domanda
   }
 };
+
+document.getElementById("buttonwelcomepage").addEventListener("click", function(){
+  window.location.href = "benchmark.html"; // Reindirizza alla pagina benchmark.html
+});
