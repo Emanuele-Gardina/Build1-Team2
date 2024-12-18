@@ -164,11 +164,10 @@ main #numeroDomanda {
   text-align: left;
   font-size: 3em;
   font-weight: 300;
-  line-height: 1.5; 
   margin-top: 0;
   vertical-align: middle;
   padding-top: 1.6em;
-  line-height: 1.2em;
+  line-height: 1.1em;
 }
 
 #correct, #wrong {
@@ -182,7 +181,9 @@ main #numeroDomanda {
 
 #quantitaGiuste, #quantitaSbagliate{
     font-size: 0.4em;
-    
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -1.5em;
 }
 
 #congr {
