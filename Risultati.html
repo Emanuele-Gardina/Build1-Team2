@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Quiz Results</title>
 </head>
 <body>
     <header>
-        <img src="../assets/epicode_logo.png">
+        <img src="../assets/epicode_logo.png" alt="Epicode Logo">
     </header>
    
     <h1>Results</h1>
     <h2>The summary of your answers:</h2>
-    <div></div>
-    <div></div>
+    
+    <div>
+        <span id="correctLabel">Correct: </span><span id="correct"></span>%  <!-- Mostra la percentuale corretta -->
+    </div>
+    <div id="paragrafi">
+        <p>Congratulations! You passed the exam.</p>
+        <p>We'll send you the certificate in a few minutes. Check your email (including promotions/spam folder).</p>
+    </div>
+    <div>
+        <span id="wrongLabel">Wrong: </span><span id="wrong"></span>%  <!-- Mostra la percentuale errata -->
+    </div>
+    <button id="buttonrate">RATE US</button>
    
-
     <script src="script.js"></script>
 </body>
 </html>

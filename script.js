@@ -1,3 +1,4 @@
+// Domande del quiz
 const questions = [
   {
     category: "Science: Computers",
@@ -16,7 +17,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -105,13 +106,13 @@ let timerScore;
 
 // Funzione per caricare una domanda
 function caricaDomanda() {
-  clearInterval(timerScore)
-  startTimer();
+  clearInterval(timerScore); // Ferma il timer corrente
+  startTimer(); // Riavvia il timer
+
   // Recupera la domanda attuale usando l'indice corrente
   let domandaCorrente = questions[numeroDomanda];
-  let numDomanda = document.getElementById("numeroDomanda")
-  numDomanda.innerHTML =`QUESTION&nbsp; ${numeroDomanda + 1} <span style="color: #D20094;"> / 10</span>`;
-
+  let numDomanda = document.getElementById("numeroDomanda");
+  numDomanda.innerHTML = `QUESTION&nbsp ${numeroDomanda + 1} <span style="color: #D20094;"> / 10</span>`;
 
   // Mostra il testo della domanda
   let contenutoDomanda = document.getElementById("question");
@@ -121,7 +122,7 @@ function caricaDomanda() {
   // Combina la risposta corretta e quelle errate in un unico array
   let risposte = [domandaCorrente.correct_answer].concat(domandaCorrente.incorrect_answers);
 
-  // Mescola le risposte utilizzando Math.random()
+  // Mescola le risposte
   risposte = risposte.sort(() => Math.random() - 0.5);
 
   // Trova il contenitore per le risposte e lo svuota
@@ -135,110 +136,75 @@ function caricaDomanda() {
     answerButton.className = "answer"; // Aggiunge una classe CSS
     answerButton.onclick = clickRisposta; // Aggiunge un evento click
     answersElement.appendChild(answerButton); // Aggiunge il pulsante al DOM
+
     // Cambia il colore al passaggio del mouse
     answerButton.addEventListener("mouseenter", () => {
       answerButton.style.backgroundImage = "linear-gradient(349deg, rgba(96,0,88,1) 0%, rgba(210,0,148,1) 100%)";
-      });
+    });
 
-      // Ripristina il colore quando il mouse esce
-      answerButton.addEventListener("mouseleave", () => {
+    // Ripristina il colore quando il mouse esce
+    answerButton.addEventListener("mouseleave", () => {
       answerButton.style.backgroundImage = "none";
       answerButton.style.backgroundColor = "#d2009327"; // Colore originale
-      });
+    });
   }
 }
 
 // Funzione per gestire il click su una risposta
 function clickRisposta(event) {
-  // Recupera il testo della risposta cliccata
   let selectedAnswer = event.target.textContent;
-
-  // Recupera la domanda attuale
   let domandaCorrente = questions[numeroDomanda];
 
   // Verifica se la risposta selezionata è corretta
   if (selectedAnswer === domandaCorrente.correct_answer) {
-    score++; // Incrementa il punteggio se corretto
-    localStorage.setItem("risultato",score);
+    score++; // Incrementa il punteggio
+    localStorage.setItem("risultato", score); // Salva il punteggio in localStorage
   }
-  //localStorage.getItem ("risultato") da portare nella quarta pagina
 
-  // Passa alla domanda successiva
-  numeroDomanda++;
+  numeroDomanda++; // Passa alla domanda successiva
   if (numeroDomanda < questions.length) {
-    // Se ci sono ancora domande, carica la prossima
-    caricaDomanda();
+    caricaDomanda(); // Carica la domanda successiva
   } else {
-    // Altrimenti, mostra il punteggio finale
-    showScore();
+    window.location.href = "Risultati.html"; // Vai alla pagina dei risultati
   }
 }
 
-// Funzione per mostrare il punteggio finale
-function showScore() {
-  clearInterval(timerScore); // Ferma il timer
-  let percentualeCorrette = Math.round((score / questions.length) * 100); // Usa "length" corretto
-  let percentualeIncorrette = 100 - percentualeCorrette;
-  // Nascondi il timer
-  let timer = document.getElementById("timer");
-  timer.style.display = "none"; // Nascondi il numero del timer
-  let numDomanda = document.getElementById("numeroDomanda")
-  numDomanda.style.display = "none";
-  let contenutoDomanda = document.getElementById("question");
-  let answersElement = document.getElementById("answers");
-  let scoreElement = document.getElementById("score");
-  let buttonrate = document.getElementById("buttonrate");
-  buttonrate.style.display = "block"
-
-  // Cambia il testo per indicare che il quiz è finito
-
-  contenutoDomanda.innerHTML = "Results <br> <span id= sottotitolo>The summary of your answers:</span>";
-  // Svuota il contenitore delle risposte
-  answersElement.innerHTML = "";
-  // Mostra il punteggio totale
-  scoreElement.style.display = "inline-block";
-  scoreElement.innerHTML = `
-  <div class="result-container">
-    <span class="percentualeRispostecorette"><Span id=correct>Correct</span><br> ${percentualeCorrette}%</span>
-    <div class = sezionecentrale>
-      <div class="congr">
-      <p id="congr1">Congratulations!<br><span id= riga2>You passed the exam.</span></p>
-      <p id="congr2">We'll send you the certificate<br>in a few minutes.<br>Check your email (including<br>promotions / spam folder)</p>
-      </div>
-    </div>
-    <span class="percentualeRispostesbagliate"><Span id=wrong>Wrong</span><br> ${percentualeIncorrette}%</span>
-  </div>
-`;
-}
-
-
-
-// Carica la prima domanda quando la pagina è pronta
-window.onload = function () {
-  caricaDomanda();
-};
-
+// Funzione per gestire il timer
 function startTimer() {
   let tempoRimanente = 60;
-  let timer = document.getElementById("timer")
-  timer.innerText = tempoRimanente
+  let timer = document.getElementById("timer");
+  timer.innerText = tempoRimanente;
   timerScore = setInterval(() => {
-    tempoRimanente--
+    tempoRimanente--;
     timer.innerText = tempoRimanente;
-    /* timer.innerText = `SECONDS ${tempoRimanente} REMAINING`; */
 
     if (tempoRimanente <= 0) {
-      clearInterval(timerScore);
+      clearInterval(timerScore); // Ferma il timer
       numeroDomanda++;
-      caricaDomanda();
-      if (numeroDomanda < questions.length) {
-        caricaDomanda(); // Carica la domanda successiva
-      }
+      caricaDomanda(); // Passa alla domanda successiva
     }
   }, 1000);
 }
 
-document.querySelector("#buttonwelcomepage").addEventListener("click", function(){
-  window.location.href = "/benchmark.html"
-})
+// Funzione per mostrare i risultati finali
+function showRisultati() {
+  // Recupera il punteggio dal localStorage
+  let score = parseInt(localStorage.getItem("risultato"));
 
+  // Calcola le percentuali
+  let percentualeCorrette = Math.round((score / questions.length) * 100);
+  let percentualeIncorrette = 100 - percentualeCorrette;
+
+  // Trova gli elementi da aggiornare e inserisci le percentuali
+  document.getElementById("correct").innerText = percentualeCorrette;
+  document.getElementById("wrong").innerText = percentualeIncorrette;
+}
+
+// Carica la prima domanda quando la pagina è pronta
+window.onload = function () {
+  if (window.location.pathname.includes("Risultati.html")) {
+    showRisultati(); // Mostra i risultati solo nella pagina dei risultati
+  } else {
+    caricaDomanda(); // Carica la prima domanda
+  }
+};
