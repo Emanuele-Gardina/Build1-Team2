@@ -134,6 +134,8 @@ main #numeroDomanda {
     font-weight: 500;
 }
 
+/* PAGINA RISULTATI */
+
 #mainpag3{
     width: 70%;
     margin: auto;
@@ -241,6 +243,8 @@ main #numeroDomanda {
 }
 /* fine pagina risultati   */
 
+/* PAGINA FEEDBACK */
+
 #buttonMore {  
     margin: auto;
     margin-top: 2em;
@@ -261,12 +265,19 @@ main #numeroDomanda {
 
 }
 
-#sottotitolopag3 {
-
-}
-
-
 /* cambiare colore alle img (stelle) */
 .star {
     filter: grayscale(100%) brightness(50%);
+}
+
+#commento {
+    background-color: rgba(255, 255, 255, 0); /* rende lo sfondo trasparente */
+    border: 0; /* elimino i bordi */
+    border-bottom: 2px solid #D20094; /* bordo inferiore */
+    width: 60%;
+    margin: 3em 15% ;
+}
+
+#sezioneStelle {
+    margin: 1.5em 0 4em 0;
 }
