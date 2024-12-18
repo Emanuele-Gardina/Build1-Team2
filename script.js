@@ -213,6 +213,20 @@ window.onload = function () {
   }
 };
 
-document.getElementById("buttonwelcomepage").addEventListener("click", function(){
-  window.location.href = "benchmark.html"; // Reindirizza alla pagina benchmark.html
+document.addEventListener("DOMContentLoaded", function() {
+  // Codice per il primo pulsante
+  const buttonWelcomePage = document.getElementById("buttonwelcomepage");
+  if (buttonWelcomePage) {
+    buttonWelcomePage.addEventListener("click", function() {
+      window.location.href = "benchmark.html"; // Reindirizza alla pagina benchmark.html
+    });
+  }
+
+  // Codice per il secondo pulsante
+  const buttonRate = document.getElementById("buttonrate");
+  if (buttonRate) {
+    buttonRate.addEventListener("click", function() {
+      window.location.href = "feedback.html"; // Reindirizza alla pagina feedback.html
+    });
+  }
 });

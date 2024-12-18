@@ -97,8 +97,10 @@ label {
 }
 
 #answers {
-    padding: 2% 15%;
-    text-align: center;
+    margin: auto; /* mette il blocco al centro della pagina in automatico */
+    text-align: center; /* centra gli elementi del blocco */
+    width: 800px; /* dimensione fissa per mantenere la stessa posizione su qualsiasi tipo di schermo */
+    padding: 2% 0; /* mette il 2% di padding sopra e sotto */
 }
 
 .answer {
@@ -237,3 +239,29 @@ main #numeroDomanda {
     cursor: pointer;
     border: 2px solid white;
 }
+/* fine pagina risultati   */
+
+#buttonMore {  
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    padding: 0.8em 3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: #00ffff;
+    color: black;
+    cursor: pointer;
+    box-shadow: 1px 1px 23px 5px #00FFFF;
+    transition: all 0.3s ease;
+    border-style:initial;
+}
+
+#mainPage4 {
+    text-align: center;
+
+}
+
+#sottotitolopag3 {
+
+}
+.star{color: gray;}
