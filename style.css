@@ -181,9 +181,9 @@ main #numeroDomanda {
 
 #quantitaGiuste, #quantitaSbagliate{
     font-size: 0.4em;
-    vertical-align: middle;
-    display: inline-block;
-    margin-top: -1.5em;
+    vertical-align: middle;  /* Allinea verticalmente al centro */
+    display: inline-block;  /* Permette alla proprietà "vertical-align" di funzionare */
+    margin-top: -1.5em;  /* alza la riga perchè porta il margine in negativo */
 }
 
 #congr {
