@@ -264,4 +264,9 @@ main #numeroDomanda {
 #sottotitolopag3 {
 
 }
-.star{color: gray;}
+
+
+/* cambiare colore alle img (stelle) */
+.star {
+    filter: grayscale(100%) brightness(50%);
+}
