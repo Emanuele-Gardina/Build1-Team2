@@ -180,6 +180,11 @@ main #numeroDomanda {
     text-align: right;
   }
 
+#quantitaGiuste, #quantitaSbagliate{
+    font-size: 0.4em;
+    
+}
+
 #congr {
     color: white;
     margin: 0 auto;

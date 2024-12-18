@@ -104,6 +104,7 @@ let numeroDomanda = 0; // Serve a dire a che numero di domanda siamo, in questo 
 let score = 0; // Contatore per il punteggio dell'utente
 let timerScore;
 
+
 // Funzione per caricare una domanda
 function caricaDomanda() {
   clearInterval(timerScore); // Ferma il timer corrente
@@ -196,8 +197,10 @@ function showRisultati() {
   let percentualeIncorrette = 100 - percentualeCorrette;
 
   // Trova gli elementi da aggiornare e inserisci le percentuali
-  document.getElementById("correct").innerText = percentualeCorrette;
-  document.getElementById("wrong").innerText = percentualeIncorrette;
+  document.getElementById("correct").innerText = percentualeCorrette + '%'; 
+  document.getElementById("wrong").innerText = percentualeIncorrette + '%';
+  document.getElementById("quantitaGiuste").innerText = (`${score} /10 questions`);
+  document.getElementById("quantitaSbagliate").innerText = (`${10 - score} /10 questions`);
 }
 
 
