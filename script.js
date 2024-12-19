@@ -196,9 +196,6 @@ function showRisultati() {
   let percentualeCorrette = Math.round((score / questions.length) * 100);
   let percentualeIncorrette = 100 - percentualeCorrette;
   let messaggio = document.getElementById("congr")
-  if(score < 6){
-    messaggio.remove();
-  }
 
   // Aggiorna i testi con le percentuali
   document.getElementById("correct").innerText = percentualeCorrette + "%";
@@ -225,6 +222,13 @@ function showRisultati() {
     }
   `;
   document.head.appendChild(style);
+  
+  if(score < 6){
+    messaggio.remove();
+    const nuovoSpan = document.createElement('span');
+    nuovoSpan.innerText = "fallito";
+    cerchio.appendChild(nuovoSpan);
+  }
 }
 
 // Carica la prima domanda quando la pagina è pronta
