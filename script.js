@@ -251,3 +251,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('.star');
+
+  stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+          // Aggiungi la classe 'active' a tutte le stelle precedenti (inclusa quella cliccata)
+          stars.forEach((s, i) => { // s sta per Star
+              if (i <= index) {
+                  s.classList.add('active'); // Colora la stella
+              } else {
+                  s.classList.remove('active'); // Rimuovi il colore dalle stelle successive
+              }
+          });
+      });
+  });
+});
