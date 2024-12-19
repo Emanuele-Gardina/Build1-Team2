@@ -134,6 +134,7 @@ main #numeroDomanda {
     font-weight: 500;
 }
 
+
 /* PAGINA RISULTATI */
 
 #mainpag3{
@@ -250,7 +251,7 @@ main #numeroDomanda {
     cursor: pointer;
     border: 2px solid white;
 }
-/* fine pagina risultati   */
+
 
 /* PAGINA FEEDBACK */
 
@@ -275,7 +276,6 @@ main #numeroDomanda {
 }
 
 /* cambiare colore alle img (stelle) */
-
 .star {
     cursor: pointer;
     filter: grayscale(100%); /* Stelle non colorate, effetto grigio */
@@ -284,7 +284,6 @@ main #numeroDomanda {
 
 .star.active {
     filter: grayscale(0%); /* Stelle attive, colorate */
-    
 }
 
 #commento {
