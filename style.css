@@ -293,6 +293,7 @@ main #numeroDomanda {
     border-bottom: 2px solid #D20094; /* bordo inferiore */
     width: 60%;
     margin: 3em 15% ;
+    color: white;
 }
 
 #sezioneStelle {
