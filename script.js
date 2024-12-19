@@ -195,6 +195,10 @@ function showRisultati() {
   // Calcola le percentuali
   let percentualeCorrette = Math.round((score / questions.length) * 100);
   let percentualeIncorrette = 100 - percentualeCorrette;
+  let messaggio = document.getElementById("congr")
+  if(score < 6){
+    messaggio.remove();
+  }
 
   // Aggiorna i testi con le percentuali
   document.getElementById("correct").innerText = percentualeCorrette + "%";
