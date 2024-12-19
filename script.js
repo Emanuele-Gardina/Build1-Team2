@@ -223,8 +223,6 @@ function showRisultati() {
   document.head.appendChild(style);
 }
 
-
-
 // Carica la prima domanda quando la pagina è pronta
 window.onload = function () {
   if (window.location.pathname.includes("Risultati.html")) {
@@ -233,6 +231,23 @@ window.onload = function () {
     caricaDomanda(); // Carica la prima domanda
   }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('.star');
+
+  stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+          // Aggiungi la classe 'active' a tutte le stelle precedenti (inclusa quella cliccata)
+          stars.forEach((s, i) => { // s sta per Star
+              if (i <= index) {
+                  s.classList.add('active'); // Colora la stella
+              } else {
+                  s.classList.remove('active'); // Rimuovi il colore dalle stelle successive
+              }
+          });
+      });
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   // Codice per il primo pulsante
