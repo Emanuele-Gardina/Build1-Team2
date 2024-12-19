@@ -196,12 +196,33 @@ function showRisultati() {
   let percentualeCorrette = Math.round((score / questions.length) * 100);
   let percentualeIncorrette = 100 - percentualeCorrette;
 
-  // Trova gli elementi da aggiornare e inserisci le percentuali
-  document.getElementById("correct").innerText = percentualeCorrette + '%'; 
-  document.getElementById("wrong").innerText = percentualeIncorrette + '%';
-  document.getElementById("quantitaGiuste").innerText = (`${score} /10 questions`);
-  document.getElementById("quantitaSbagliate").innerText = (`${10 - score} /10 questions`);
+  // Aggiorna i testi con le percentuali
+  document.getElementById("correct").innerText = percentualeCorrette + "%";
+  document.getElementById("wrong").innerText = percentualeIncorrette + "%";
+  document.getElementById("quantitaGiuste").innerText = `${score} / 10 questions`;
+  document.getElementById("quantitaSbagliate").innerText = `${10 - score} / 10 questions`;
+
+  // Aggiorna il gradiente del bordo in base alle percentuali
+  const cerchio = document.getElementById("cerchio");
+
+  const gradiente = `conic-gradient(
+    #00ffff 0% ${percentualeCorrette}%, 
+    #D20094 ${percentualeCorrette}% 100%
+  )`;
+
+  // Aggiunge il gradiente dinamico al ::before
+  cerchio.style.setProperty('--gradiente-bordo', gradiente);
+
+  // Aggiorna lo stile inline per il pseudo-elemento
+  const style = document.createElement('style');
+  style.innerHTML = `
+    #cerchio::before {
+      background: ${gradiente};
+    }
+  `;
+  document.head.appendChild(style);
 }
+
 
 
 // Carica la prima domanda quando la pagina è pronta

@@ -181,6 +181,8 @@ main #numeroDomanda {
 #spaziosbagliate {
     float: right;
     text-align: right;
+    vertical-align: middle;  /* Allinea verticalmente al centro */
+    margin-top: -5.4em;  /* alza la riga perchè porta il margine in negativo */
   }
 
 #quantitaGiuste, #quantitaSbagliate{
@@ -190,6 +192,23 @@ main #numeroDomanda {
     margin-top: -1.5em;  /* alza la riga perchè porta il margine in negativo */
 }
 
+#cerchio {
+    position: relative;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 20px solid transparent;
+    margin: 20px auto;
+}
+
+#cerchio::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    mask: radial-gradient(circle, transparent 60%, black 61%) /* Nasconde la parte centrale del cerchio per creare un effetto ad anello.*/
+}
+
 #congr {
     color: white;
     margin: 0 auto;
@@ -197,19 +216,9 @@ main #numeroDomanda {
     text-align: center; 
     display: inline-block;
     vertical-align: middle; 
-    padding-top: 2.7em;
-  }
-#cerchio {
-    text-align: center;
-    border: 30px solid #00ffff ;
-    border-radius: 50%;
-    width: 12em;
-    height: 12em;
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
-   }
-  
+    padding-top: 3em;
+  }  
+
   #congr1 {
     margin: 0; 
     font-size: 1em;
