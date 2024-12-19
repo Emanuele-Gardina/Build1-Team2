@@ -222,7 +222,7 @@ function showRisultati() {
     }
   `;
   document.head.appendChild(style);
-  
+
   if(score < 6){
     messaggio.remove();
     const nuovoSpan = document.createElement('span');
@@ -289,4 +289,17 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       });
   });
+});
+
+const checkbox = document.getElementById('checkbox');
+const button = document.getElementById('buttonwelcomepage');
+
+// Aggiungi un event listener per monitorare il cambiamento della checkbox
+checkbox.addEventListener('change', function() {
+    // Se la checkbox è selezionata, abilita il bottone
+    if (checkbox.checked) {
+        button.disabled = false;
+    } else {
+        button.disabled = true;
+    }
 });
