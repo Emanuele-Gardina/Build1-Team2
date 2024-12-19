@@ -172,12 +172,26 @@ function clickRisposta(event) {
 
 // Funzione per gestire il timer
 function startTimer() {
-  let tempoRimanente = 60;
+  let tempoRimanente = 60; // Tempo totale in secondi
   let timer = document.getElementById("timer");
+  let cerchioTimer = document.getElementById("cerchiotimer");
+
   timer.innerText = tempoRimanente;
+
   timerScore = setInterval(() => {
     tempoRimanente--;
+
+    // Aggiorna il testo del timer
     timer.innerText = tempoRimanente;
+
+    // Calcola la percentuale del tempo rimanente
+    let percentualeRimasta = (tempoRimanente / 60) * 100;
+
+    // Aggiorna il background del cerchio con un gradiente dinamico
+    cerchioTimer.style.background = `conic-gradient(
+      #00ffff ${percentualeRimasta}%, 
+      #d3d3d3 ${percentualeRimasta}%
+    )`;
 
     if (tempoRimanente <= 0) {
       clearInterval(timerScore); // Ferma il timer
@@ -186,6 +200,7 @@ function startTimer() {
     }
   }, 1000);
 }
+
 
 // Funzione per mostrare i risultati finali
 function showRisultati() {
@@ -225,9 +240,10 @@ function showRisultati() {
 
   if(score < 6){
     messaggio.remove();
-    const nuovoSpan = document.createElement('span');
-    nuovoSpan.innerText = "fallito";
-    cerchio.appendChild(nuovoSpan);
+    const nuovoDiv = document.createElement('div');
+    nuovoDiv.id = "messaggiofallito"
+    nuovoDiv.innerText = "You didn't pass!";
+    cerchio.appendChild(nuovoDiv);
   }
 }
 

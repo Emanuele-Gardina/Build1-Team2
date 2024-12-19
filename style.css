@@ -114,18 +114,49 @@ label {
     font-weight: bold;
 }
 
-#timer {
-    text-align: center;
-    font-size: 3em;
-}
+#cerchiotimer {
+    position: relative;
+    width: 6em; /* Diametro del cerchio */
+    height: 6em;
+    border-radius: 50%; /* Rende il cerchio */
+    background: conic-gradient(#00ffff 100%, #d3d3d3 0%); /* Inizializza il gradiente */
+    margin-left: 90%; /* Posizionamento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #cerchiotimer::before {
+    content: '';
+    position: absolute;
+    inset: 15%; /* Dimensione del foro interno */
+    background-color: rgb(90, 38, 118); /* Sfondo trasparente */
+    border-radius: 50%; /* Rende il foro interno rotondo */
+  }
+  
+  #timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.8em; /* Dimensione del testo */
+    font-weight: bold;
+    color: white; /* Colore del testo */
+    z-index: 1; /* Posiziona sopra al cerchio */
+    pointer-events: none; /* Rende il timer non interattivo */
+  }
+  
+  
+  
+  
 
-header div {
+/* header div {
     border: 12px solid #00ffff ;
     border-radius: 50%;
     margin-left: 90%;
     width: 1.25em;
     height: 1.25em;
-}
+} */
 
 main #numeroDomanda {
     text-align: center;
@@ -252,6 +283,10 @@ main #numeroDomanda {
     border: 2px solid white;
 }
 
+#messaggiofallito {
+    padding-top: 3.5em;
+    font-size: 1.5em;
+}
 
 /* PAGINA FEEDBACK */
 
