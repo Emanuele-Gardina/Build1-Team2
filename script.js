@@ -239,6 +239,7 @@ function showRisultati() {
   `;
   document.head.appendChild(style);
 
+ // Se il punteggio è minore del 60% crea un messaggiofallito
   if((score / questions.length) < 0.6){
     messaggio.remove();
     const nuovoDiv = document.createElement('div');
@@ -259,6 +260,7 @@ window.onload = function () {
   }
 };
 
+// animazione stelle
 document.addEventListener('DOMContentLoaded', () => {
   const stars = document.querySelectorAll('.star');
 
@@ -276,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// cambiare pagina da index a benchamr
 document.addEventListener("DOMContentLoaded", function() {
   // Codice per il primo pulsante
   const bottonedisabilitato = document.getElementById("bottonedisabilitato");
@@ -293,23 +296,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const stars = document.querySelectorAll('.star');
 
-  stars.forEach((star, index) => {
-      star.addEventListener('click', () => {
-          // Aggiungi la classe 'active' a tutte le stelle precedenti (inclusa quella cliccata)
-          stars.forEach((s, i) => { // s sta per Star
-              if (i <= index) {
-                  s.classList.add('active'); // Colora la stella
-              } else {
-                  s.classList.remove('active'); // Rimuovi il colore dalle stelle successive
-              }
-          });
-      });
-  });
-});
-
+// accendere il bottone solo dopo che la checkbox è stata segnata
 function bottoneAbilitato() {
   const checkbox = document.getElementById('casellacheckbox');
   const button = document.getElementById('bottonedisabilitato');

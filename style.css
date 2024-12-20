@@ -159,14 +159,6 @@ label {
     pointer-events: none; /* Rende il timer non interattivo */
 }
 
-/* header div {
-    border: 12px solid #00ffff ;
-    border-radius: 50%;
-    margin-left: 90%;
-    width: 1.25em;
-    height: 1.25em;
-} */
-
 main #numeroDomanda {
     text-align: center;
     font-family: "Outfit", sans-serif;
