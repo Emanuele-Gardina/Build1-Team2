@@ -278,9 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function() {
   // Codice per il primo pulsante
-  const buttonWelcomePage = document.getElementById("buttonwelcomepage");
-  if (buttonWelcomePage) {
-    buttonWelcomePage.addEventListener("click", function() {
+  const bottonedisabilitato = document.getElementById("bottonedisabilitato");
+  if (bottonedisabilitato) {
+    bottonedisabilitato.addEventListener("click", function() {
       window.location.href = "benchmark.html"; // Reindirizza alla pagina benchmark.html
     });
   }
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function bottoneAbilitato() {
   const checkbox = document.getElementById('casellacheckbox');
-  const button = document.getElementById('buttonwelcomepage');
+  const button = document.getElementById('bottonedisabilitato');
   
   // Aggiungi un event listener per monitorare il cambiamento della checkbox
   checkbox.addEventListener('change', function() {
