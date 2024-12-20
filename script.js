@@ -99,6 +99,17 @@ const questions = [
   },
 ];
 
+// Carica la prima domanda quando la pagina è pronta
+window.onload = function () {
+  if (window.location.pathname.includes("Risultati.html")) {
+    showRisultati(); // Mostra i risultati solo nella pagina dei risultati
+  } else if(window.location.pathname.includes("index.html")){
+    bottoneAbilitato();
+  }else {
+  caricaDomanda(); // Carica la prima domanda
+  }
+};
+
 // Variabili globali
 let numeroDomanda = 0; // Serve a dire a che numero di domanda siamo, in questo caso alla domanda 0 che sarebbe la domanda 1
 let score = 0; // Contatore per il punteggio dell'utente
@@ -176,18 +187,19 @@ function startTimer() {
   let timer = document.getElementById("timer"); // selezionare il punto dell'html in cui inserire i 60 secondi
   let cerchioTimer = document.getElementById("cerchiotimer");
 
-  timer.innerText = tempoRimanente;
+  timer.innerText = tempoRimanente; // 60 nel paragrafo selezionato a riga 176
 
+  // funzione per far diminuire il numero 60
   timerScore = setInterval(() => {
-    tempoRimanente--;
+    tempoRimanente--; // faccio diminuire il numero 60 ogni mille millisecondi
 
     // Aggiorna il testo del timer
     timer.innerText = tempoRimanente;
 
-    // Calcola la percentuale del tempo rimanente
+    // Trasforma il tempo in percentuale 
     let percentualeRimasta = (1 - tempoRimanente / 60) * 100;
 
-    // Aggiorna il background del cerchio con un gradiente dinamico in senso orario
+    // Aggiorna il background del cerchio con un gradiente dinamico in senso orario in base alla percentuale
     cerchioTimer.style.background = `conic-gradient(
       #d3d3d3 ${percentualeRimasta}%, 
       #00ffff ${percentualeRimasta}%
@@ -200,7 +212,6 @@ function startTimer() {
     }
   }, 1000);
 }
-
 
 // Funzione per mostrare i risultati finali
 function showRisultati() {
@@ -248,17 +259,6 @@ function showRisultati() {
     cerchio.appendChild(nuovoDiv);
   }
 }
-
-// Carica la prima domanda quando la pagina è pronta
-window.onload = function () {
-  if (window.location.pathname.includes("Risultati.html")) {
-    showRisultati(); // Mostra i risultati solo nella pagina dei risultati
-  } else if(window.location.pathname.includes("index.html")){
-    bottoneAbilitato();
-  }else {
-  caricaDomanda(); // Carica la prima domanda
-  }
-};
 
 // animazione stelle
 document.addEventListener('DOMContentLoaded', () => {

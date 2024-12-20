@@ -74,11 +74,12 @@ label {
 #casellacheckbox {
     width: 1.3em;
     height: 1.3em;
-    border: 2px solid #ccc; 
+    border: 2px solid white; 
     background-color: transparent; 
-    appearance: none; 
+    appearance: none;
     cursor: pointer; 
-    transform: translateY(0.4em);
+    margin-top: 1.3em;
+    transform: translateY(0.2em); /* abbassa la checkbox */
 }
 
 #casellacheckbox:checked {
@@ -137,9 +138,9 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  #cerchiotimer::before {
+#cerchiotimer::before {
     content: '';
     position: absolute;
     inset: 15%; /* Dimensione del foro interno */
@@ -147,7 +148,7 @@ label {
     border-radius: 50%; /* Rende il foro interno rotondo */
 }
   
-  #timer {
+#timer {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -155,8 +156,6 @@ label {
     font-size: 2.8em; /* Dimensione del testo */
     font-weight: bold;
     color: white; /* Colore del testo */
-    z-index: 1; /* Posiziona sopra al cerchio */
-    pointer-events: none; /* Rende il timer non interattivo */
 }
 
 main #numeroDomanda {
@@ -250,26 +249,26 @@ main #numeroDomanda {
     display: inline-block;
     vertical-align: middle; 
     padding-top: 3em;
-  }  
+}  
 
-  #congr1 {
+#congr1 {
     margin: 0; 
     font-size: 1em;
     line-height: 1.5;
-  }
+}
   
-  #congr3 {
+#congr3 {
       font-weight: 400;
       font-size: 0.6em;
-  }
+}
   
-  #congr2 {
+#congr2 {
     color: #00FFFF;
     margin: 0; 
     font-size: 0.8em;
     line-height: 1.5;
     margin-bottom: 0.8em;
-  }
+}
 
 #buttonrate {
     margin: auto;
