@@ -333,3 +333,17 @@ main #numeroDomanda {
 #sezioneStelle {
     margin: 1.5em 0 4em 0;
 }
+
+#bottonedisabilitato {
+    position: absolute; /* Posiziona il bottone in modo assoluto */
+    right: 0; /* Posiziona il bottone al bordo destro */
+    padding: 1em 3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: auto;
+    background-color: #00ffff51;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-style:initial;
+}

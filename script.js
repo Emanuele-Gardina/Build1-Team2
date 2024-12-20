@@ -211,12 +211,13 @@ function showRisultati() {
   let percentualeCorrette = Math.round((score / questions.length) * 100);
   let percentualeIncorrette = 100 - percentualeCorrette;
   let messaggio = document.getElementById("congr")
+  let numtotale = questions.length
 
   // Aggiorna i testi con le percentuali
   document.getElementById("correct").innerText = percentualeCorrette + "%";
   document.getElementById("wrong").innerText = percentualeIncorrette + "%";
-  document.getElementById("quantitaGiuste").innerText = `${score} / 10 questions`;
-  document.getElementById("quantitaSbagliate").innerText = `${10 - score} / 10 questions`;
+  document.getElementById("quantitaGiuste").innerText = `${score} / ${numtotale} questions`;
+  document.getElementById("quantitaSbagliate").innerText = `${numtotale - score} / ${numtotale} questions`;
 
   // Aggiorna il gradiente del bordo in base alle percentuali
   const cerchio = document.getElementById("cerchio");
@@ -238,7 +239,7 @@ function showRisultati() {
   `;
   document.head.appendChild(style);
 
-  if(score < 6){
+  if((score / questions.length) < 0.6){
     messaggio.remove();
     const nuovoDiv = document.createElement('div');
     nuovoDiv.id = "messaggiofallito"
@@ -251,8 +252,10 @@ function showRisultati() {
 window.onload = function () {
   if (window.location.pathname.includes("Risultati.html")) {
     showRisultati(); // Mostra i risultati solo nella pagina dei risultati
-  } else {
-    caricaDomanda(); // Carica la prima domanda
+  } else if(window.location.pathname.includes("index.html")){
+    bottoneAbilitato();
+  }else {
+  caricaDomanda(); // Carica la prima domanda
   }
 };
 
@@ -307,15 +310,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const checkbox = document.getElementById('checkbox');
-const button = document.getElementById('buttonwelcomepage');
-
-// Aggiungi un event listener per monitorare il cambiamento della checkbox
-checkbox.addEventListener('change', function() {
-    // Se la checkbox è selezionata, abilita il bottone
-    if (checkbox.checked) {
-        button.disabled = false;
-    } else {
-        button.disabled = true;
-    }
-});
+function bottoneAbilitato() {
+  const checkbox = document.getElementById('checkbox');
+  const button = document.getElementById('buttonwelcomepage');
+  
+  // Aggiungi un event listener per monitorare il cambiamento della checkbox
+  checkbox.addEventListener('change', function() {
+      // Se la checkbox è selezionata, abilita il bottone
+      if (checkbox.checked) {
+          button.disabled = false;
+          button.id = "buttonwelcomepage";
+      } else {
+          button.disabled = true;
+          button.id = "bottonedisabilitato";
+      }
+  });
+}
