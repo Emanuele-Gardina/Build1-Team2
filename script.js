@@ -111,28 +111,28 @@ function caricaDomanda() {
   startTimer(); // Riavvia il timer
 
   // Recupera la domanda attuale usando l'indice corrente
-  let domandaCorrente = questions[numeroDomanda];
-  let numDomanda = document.getElementById("numeroDomanda");
-  numDomanda.innerHTML = `QUESTION&nbsp ${numeroDomanda + 1} <span style="color: #D20094;"> / 10</span>`;
+  let domandaCorrente = questions[numeroDomanda]; // selezinona la domanda dall'Array
+  let numDomanda = document.getElementById("numeroDomanda"); // seleziono il paragrafo in cui inserire il numero della domanda Es. (1 di 10)
+  numDomanda.innerHTML = `QUESTION&nbsp ${numeroDomanda + 1} <span style="color: #D20094;"> / 10</span>`; // inserisco il numero della domanda nel paragrafo
 
   // Mostra il testo della domanda
-  let contenutoDomanda = document.getElementById("question");
-  contenutoDomanda.innerText = domandaCorrente.question;
-  contenutoDomanda.style.textAlign = "center";
+  let contenutoDomanda = document.getElementById("question"); // seleziono il paragrafo in cui inserire il testo della domanda
+  contenutoDomanda.innerText = domandaCorrente.question; // inserisco il testo della domanda nel paragrafo selezionato
+  contenutoDomanda.style.textAlign = "center"; 
 
-  // Combina la risposta corretta e quelle errate in un unico array
-  let risposte = [domandaCorrente.correct_answer].concat(domandaCorrente.incorrect_answers);
+  // Concatena la risposta corretta e quelle errate in un unico array
+  let risposte = [domandaCorrente.correct_answer].concat(domandaCorrente.incorrect_answers); 
 
   // Mescola le risposte
   risposte = risposte.sort(() => Math.random() - 0.5);
 
   // Trova il contenitore per le risposte e lo svuota
-  let answersElement = document.getElementById("answers");
+  let answersElement = document.getElementById("answers"); // seleziona il paragrafo per inserire le risposte 
   answersElement.innerHTML = ""; // Elimina eventuali risposte precedenti
 
   // Crea un pulsante per ogni risposta
   for (let i = 0; i < risposte.length; i++) {
-    let answerButton = document.createElement("button"); // Crea un pulsante
+    let answerButton = document.createElement("button"); // Crea un pulsante per ogni risposta del ciclo for 
     answerButton.textContent = risposte[i]; // Imposta il testo del pulsante con la risposta
     answerButton.className = "answer"; // Aggiunge una classe CSS
     answerButton.onclick = clickRisposta; // Aggiunge un evento click
@@ -151,10 +151,10 @@ function caricaDomanda() {
   }
 }
 
-// Funzione per gestire il click su una risposta
+// Funzione per gestire il click su una risposta (richiama la riga 138)
 function clickRisposta(event) {
-  let selectedAnswer = event.target.textContent;
-  let domandaCorrente = questions[numeroDomanda];
+  let selectedAnswer = event.target.textContent; // 'event' è l'oggetto dell'evento che contiene informazioni su cosa è stato cliccato. // 'event.target' si riferisce all'elemento HTML che ha generato l'evento (in questo caso, il pulsante cliccato). // '.textContent' è una proprietà dell'elemento che restituisce il testo contenuto al suo interno. // Quindi, questa riga salva nella variabile 'selectedAnswer' il testo della risposta selezionata dall'utente.
+  let domandaCorrente = questions[numeroDomanda]; // seleziona in memoria la domanda corrente
 
   // Verifica se la risposta selezionata è corretta
   if (selectedAnswer === domandaCorrente.correct_answer) {
@@ -173,7 +173,7 @@ function clickRisposta(event) {
 // Funzione per gestire il timer
 function startTimer() {
   let tempoRimanente = 60; // Tempo totale in secondi
-  let timer = document.getElementById("timer");
+  let timer = document.getElementById("timer"); // selezionare il punto dell'html in cui inserire i 60 secondi
   let cerchioTimer = document.getElementById("cerchiotimer");
 
   timer.innerText = tempoRimanente;
