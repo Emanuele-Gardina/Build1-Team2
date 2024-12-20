@@ -185,12 +185,12 @@ function startTimer() {
     timer.innerText = tempoRimanente;
 
     // Calcola la percentuale del tempo rimanente
-    let percentualeRimasta = (tempoRimanente / 60) * 100;
+    let percentualeRimasta = (1 - tempoRimanente / 60) * 100;
 
-    // Aggiorna il background del cerchio con un gradiente dinamico
+    // Aggiorna il background del cerchio con un gradiente dinamico in senso orario
     cerchioTimer.style.background = `conic-gradient(
-      #00ffff ${percentualeRimasta}%, 
-      #d3d3d3 ${percentualeRimasta}%
+      #d3d3d3 ${percentualeRimasta}%, 
+      #00ffff ${percentualeRimasta}%
     )`;
 
     if (tempoRimanente <= 0) {
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function bottoneAbilitato() {
-  const checkbox = document.getElementById('checkbox');
+  const checkbox = document.getElementById('casellacheckbox');
   const button = document.getElementById('buttonwelcomepage');
   
   // Aggiungi un event listener per monitorare il cambiamento della checkbox
